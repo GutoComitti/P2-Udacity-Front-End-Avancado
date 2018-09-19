@@ -63,17 +63,12 @@ $(function() {
         it('should be hidden by default', function(){
             var bodyClasses = document.querySelector('body').classList;
             expect(bodyClasses).toContain('menu-hidden');
-            //TODO: teste pra ver se o menu está escondido por default
-            // Verificar se existe a classe hide menu no body quando em jQuery (hasClass(classe))
-            // No vanillaJS usar o classList (pegar o elemento por selector, e usar a função classList)
-            // Jasmine => toContain (verifica se o objeto tem um certo de pedaço)
         });
 
         it('should have visibility changed on click', function(){
             //Selects the list of classes of the body, which defines if the menu is displayed or hidden
             var menuClassList = document.querySelector('body').classList;
             //Selects the menu icon
-            debugger;
             var menuIcon = document.querySelector('.menu-icon-link');
             //clicks the menu icon and expect the menu to be displayed (no menu hidden class)
             menuIcon.click();
@@ -88,14 +83,12 @@ $(function() {
         var firstFeed;
         beforeEach(function(done){
             loadFeed(0,function(){
-                //sets the value of firstFeed to the HTML inside .feed
-                firstFeed = $('.feed')[0].innerHTML;
                 done();
             });
         });
         it('should have at least one .entry element in the .feed container when loadFeed completes it\'s work',function(){
-            //checks if the HTML inside .feed has at least one .entry
-            expect(firstFeed.indexOf('class="entry-link"')).not.toBe(-1);
+            //checks if there is at least one .entry element inside a .feed element
+            expect($('.feed .entry').length).not.toBe(0);
         });
     });
 
