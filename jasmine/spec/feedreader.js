@@ -77,10 +77,10 @@ $(function() {
             var menuIcon = document.querySelector('.menu-icon-link');
             //clicks the menu icon and expect the menu to be displayed (no menu hidden class)
             menuIcon.click();
-            expect(menuClassList.value.indexOf('menu-hidden')).toBe(-1);
+            expect(menuClassList.value).not.toContain('menu-hidden');
             //clicks the menu icon again and expect the menu to be hidden (menu hidden class)
             menuIcon.click();
-            expect(menuClassList.value.indexOf('menu-hidden')).not.toBe(-1);
+            expect(menuClassList.value).toContain('menu-hidden');
         });
     });
 
@@ -119,7 +119,7 @@ $(function() {
         it('should have it\'s content changed when loadFeed runs', function(){
             //Tests if the second feed has the first feed.
             //It will be false if the second feed has the first feed in it.
-            expect(secondFeed.indexOf(firstFeed) == -1).toBe(true);
+            expect(secondFeed).not.toEqual(firstFeed);
         });
     });
 }());
